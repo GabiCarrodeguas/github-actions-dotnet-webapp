@@ -1,0 +1,16 @@
+name: Agendado para ser executada a cada hora
+
+on:
+  push:     # Evento de push no repositório
+  schedule: # Execução agendada
+    - cron: '0 0 1 1 *'  # Executa 1 vez por ano (1º de janeiro às 00:00 UTC)
+jobs:
+  exemplo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checar o código
+        uses: actions/checkout@v3
+
+      - name: Exemplo de passo
+        run: echo "Workflow executado por push ou agendamento"
